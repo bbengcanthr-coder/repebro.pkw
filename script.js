@@ -1,9 +1,8 @@
-function setImage(layer, path) {
-  document.getElementById("layer" + layer).src = path;
+function setImage(layer, src) {
+  document.getElementById("layer" + layer).src = src;
 }
 
-/* แก้ autoplay บาง browser */
-window.addEventListener("click", function(){
-  const bgm = document.getElementById("bgm");
-  bgm.play();
+/* บาง browser ต้องคลิกก่อนเพลงจะดัง */
+window.addEventListener("click", function() {
+  document.getElementById("bgm").play();
 });
