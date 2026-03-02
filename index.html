@@ -5,35 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>repebro PKW</title>
 
-<!-- ฟอนต์ไทยน่ารัก -->
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
-</head>
 
+<!-- สำหรับดาวน์โหลดภาพ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
 <body>
 
 <h1>🥞 repebro PKW</h1>
 
-<audio id="bgm" autoplay loop>
+<div class="top-buttons">
+  <button onclick="playMusic()">▶ เล่นเพลง</button>
+  <button onclick="pauseMusic()">⏸ หยุดเพลง</button>
+  <button onclick="downloadImage()">⬇ ดาวน์โหลด</button>
+</div>
+
+<audio id="bgm" loop>
   <source src="BGM Yummy Flavor _ Cute Sweet Happy Background Music.mp3" type="audio/mpeg">
 </audio>
 
 <div class="game-container">
 
-  <div class="canvas">
-    <!-- ล่างสุด -->
+  <div class="canvas" id="canvas">
     <img id="layer5" class="layer">
     <img id="layer4" class="layer">
     <img id="layer3" class="layer">
     <img id="layer2" class="layer">
-    <!-- บนสุด -->
     <img id="layer1" class="layer">
   </div>
 
   <div class="controls">
 
-    <!-- เรียง 5 → 1 -->
     <h3>ลำดับที่ 5</h3>
     <button onclick="setImage(5,'34.png')">ชาโค</button>
     <button onclick="setImage(5,'35.png')">นม</button>
@@ -53,7 +57,7 @@
     <h3>ลำดับที่ 3</h3>
     <button onclick="setImage(3,'13.png')">กิวี่</button>
     <button onclick="setImage(3,'14.png')">ไส้กรอก</button>
-    <button onclick="setImage(3,'15.png')">ไข่หวาน</button>
+     <button onclick="setImage(3,'15.png')">ไข่หวาน</button>
     <button onclick="setImage(3,'16.png')">สตอเบอรี่</button>
     <button onclick="setImage(3,'17.png')">พิเศษ</button>
     <button onclick="setImage(3,'18.png')">แฮม</button>
@@ -65,6 +69,7 @@
 
     <h3>ลำดับที่ 2</h3>
     <button onclick="setImage(2,'1.png')">ซอสแดง</button>
+    <button onclick="setImage(2,'2.png')">ซอสเหลือง</button>
     <button onclick="setImage(2,'2.png')">ซอสเหลือง</button>
     <button onclick="setImage(2,'3.png')">ฟรุ้งฟริ้ง</button>
     <button onclick="setImage(2,'4.png')">เม็ดเม็ด</button>
