@@ -7,32 +7,46 @@ body {
 }
 
 h1 {
-  margin: 30px 0;
-  font-weight: 500;
+  margin: 30px 0 20px 0;
 }
 
+/* จัดทั้งหน้าให้อยู่กลาง */
 .game-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 60px;
-  padding: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* กรอบเครป */
 .canvas {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 360px;
+  height: 360px;
   background: #fafafa;
   border-radius: 25px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   overflow: hidden;
+
+  /* สำคัญมาก */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 40px;
 }
 
+/* เลเยอร์ภาพ */
 .layer {
   position: absolute;
-  width: 100%;
-  height: 100%;
+
+  /* ทำให้ภาพอยู่กลางจริง */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 100%;
+  max-height: 100%;
+
   object-fit: contain;
 }
 
@@ -44,13 +58,7 @@ h1 {
 #layer1 { z-index: 5; }
 
 .controls {
-  max-width: 450px;
-  text-align: left;
-}
-
-h3 {
-  margin-top: 20px;
-  font-weight: 400;
+  max-width: 700px;
 }
 
 button {
@@ -58,7 +66,7 @@ button {
   background: #f5f5f5;
   border: 1px solid #e5e5e5;
   padding: 6px 12px;
-  margin: 5px;
+  margin: 4px;
   border-radius: 14px;
   cursor: pointer;
   transition: 0.2s;
@@ -67,21 +75,4 @@ button {
 button:hover {
   background: #ffe6f2;
   border-color: #ffb3d9;
-}
-
-/* มือถือ */
-@media (max-width: 768px) {
-  .game-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .controls {
-    text-align: center;
-  }
-
-  .canvas {
-    width: 280px;
-    height: 280px;
-  }
 }
