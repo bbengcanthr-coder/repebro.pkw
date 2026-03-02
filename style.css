@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(to bottom, #ffe6f0, #fff5cc);
+  font-family: 'Comic Sans MS', cursive;
+  text-align: center;
+}
+
+h1 {
+  color: #ff66a3;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.canvas {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background: #ff99cc;
+  border: none;
+  padding: 8px 12px;
+  margin: 4px;
+  border-radius: 12px;
+  cursor: pointer;
+}
