@@ -5,79 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>repebro</title>
 
-<!-- ฟอนต์ไทยน่ารัก -->
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>🥞 repebro PKW</h1>
+<h1>🥞 repebro</h1>
 
-<audio autoplay loop>
-  <source src="BGM Yummy Flavor _ Cute Sweet Happy Background Music.mp3" type="audio/mpeg">
+<audio id="bgm" autoplay loop>
+  <source src="audio/bgm.mp3" type="audio/mpeg">
 </audio>
 
-<div class="game-container">
+<div class="game">
 
-  <!-- Canvas -->
   <div class="canvas">
-    <img id="layer5" class="layer">
-    <img id="layer4" class="layer">
-    <img id="layer3" class="layer">
-    <img id="layer2" class="layer">
-    <img id="layer1" class="layer">
+    <!-- ล่างสุด -->
+    <img id="layer5" class="layer layer5">
+    <img id="layer4" class="layer layer4">
+    <img id="layer3" class="layer layer3">
+    <img id="layer2" class="layer layer2">
+    <!-- บนสุด -->
+    <img id="layer1" class="layer layer1">
   </div>
 
-  <!-- Controls -->
   <div class="controls">
 
-    <h3>ลำดับที่ 1</h3>
-    <button onclick="setImage(1,'34.png')">ชาโค</button>
-    <button onclick="setImage(1,'35.png')">นม</button>
+    <h3>ฐาน (5)</h3>
+    <button onclick="setImage(5,'images/step5/base1.png')">Base 1</button>
+    <button onclick="setImage(5,'images/step5/base2.png')">Base 2</button>
 
-    <h3>ลำดับที่ 2</h3>
-    <button onclick="setImage(2,'24.png')">ขาวตุ่น</button>
-    <button onclick="setImage(2,'25.png')">ไหม้</button>
-    <button onclick="setImage(2,'26.png')">คุโรมิ</button>
-    <button onclick="setImage(2,'27.png')">โดเรมอน</button>
-    <button onclick="setImage(2,'28.png')">เมโลดี้</button>
-    <button onclick="setImage(2,'29.png')">ลายพิเศษ</button>
-    <button onclick="setImage(2,'30.png')">หมู</button>
-    <button onclick="setImage(2,'31.png')">นีโม่</button>
-    <button onclick="setImage(2,'32.png')">โดเรมี่</button>
-    <button onclick="setImage(2,'33.png')">ท่อม</button>
+    <h3>เลเยอร์ 4</h3>
+    <button onclick="setImage(4,'images/step4/l4_1.png')">L4-1</button>
 
-    <h3>ลำดับที่ 3</h3>
-    <button onclick="setImage(3,'13.png')">กิวี่</button>
-    <button onclick="setImage(3,'14.png')">ไส้กรอก</button>
-    <button onclick="setImage(3,'15.png')">ไข่หวาน</button>
-    <button onclick="setImage(3,'16.png')">สตรอว์เบอร์รี่</button>
-    <button onclick="setImage(3,'17.png')">พิเศษ</button>
-    <button onclick="setImage(3,'18.png')">แฮม</button>
-    <button onclick="setImage(3,'19.png')">ถั่วดำ</button>
-    <button onclick="setImage(3,'20.png')">กล้วย</button>
-    <button onclick="setImage(3,'21.png')">ถั่วเหลือง</button>
-    <button onclick="setImage(3,'22.png')">ปูอัด</button>
-    <button onclick="setImage(3,'23.png')">หมูไหม้</button>
+    <h3>เลเยอร์ 3</h3>
+    <button onclick="setImage(3,'images/step3/l3_1.png')">L3-1</button>
 
-    <h3>ลำดับที่ 4</h3>
-    <button onclick="setImage(4,'1.png')">ซอสแดง</button>
-    <button onclick="setImage(4,'2.png')">ซอสเหลือง</button>
-    <button onclick="setImage(4,'3.png')">ฟรุ้งฟริ้ง</button>
-    <button onclick="setImage(4,'4.png')">เม็ดเม็ด</button>
-    <button onclick="setImage(4,'5.png')">ซอสเขียว</button>
-    <button onclick="setImage(4,'6.png')">ซอสขาว</button>
-    <button onclick="setImage(4,'7.png')">แดงตุ่น</button>
-    <button onclick="setImage(4,'8.png')">ซอสส้ม</button>
-    <button onclick="setImage(4,'9.png')">ซอสฟ้า</button>
-    <button onclick="setImage(4,'10.png')">ใบเตย</button>
-    <button onclick="setImage(4,'11.png')">ม่วง</button>
-    <button onclick="setImage(4,'12.png')">ชมพู</button>
+    <h3>เลเยอร์ 2</h3>
+    <button onclick="setImage(2,'images/step2/l2_1.png')">L2-1</button>
 
-    <h3>ลำดับที่ 5</h3>
-    <button onclick="setImage(5,'ชาโค.png')">แป้งชาโค</button>
-    <button onclick="setImage(5,'นมสด.png')">แป้งนมสด</button>
+    <h3>เลเยอร์ 1 (บนสุด)</h3>
+    <button onclick="setImage(1,'images/step1/top1.png')">Top</button>
 
   </div>
 
