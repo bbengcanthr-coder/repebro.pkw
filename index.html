@@ -63,29 +63,26 @@ h1{
   max-height:100%;
 }
 
-/* ปุ่มก้อนเมฆ */
 button{
-  background:#CDEBFF;
-  border:none;
-  padding:8px 16px;
+  background:#EAF6FF;
+  border:2px solid #CDEBFF;
+  padding:8px 18px;
   margin:6px;
-  border-radius:50px;
+  border-radius:30px;
   cursor:pointer;
   font-size:14px;
   font-family:'TCS-4SamLee-PersonalOnly', sans-serif;
-  color:#4aa3ff;
-
-  box-shadow:
-    0 4px 0 #a8d8ff,
-    8px 0 0 #CDEBFF,
-    -8px 0 0 #CDEBFF,
-    0 -6px 0 #CDEBFF;
-
-  transition:0.2s;
+  color:#5DADE2;
+  transition:all 0.2s ease;
 }
 
 button:hover{
-  transform:translateY(-3px);
+  background:#D6EEFF;
+  transform:translateY(-2px);
+}
+
+button:active{
+  transform:translateY(0px);
 }
 
 /* หัวข้อหมวด */
@@ -162,8 +159,8 @@ h3{
 <button onclick="setImage(2,'12.png')">pinksauce</button>
 
 <h3>Crepe batter</h3>
-<button onclick="setImage(1,'ชาโค.png')">creme</button>
-<button onclick="setImage(1,'นมสด.png')">charcoal</button>
+<button onclick="setImage(1,'ชาโค.png')">charcoal</button>
+<button onclick="setImage(1,'นมสด.png')">creme</button>
 
 </div>
 
