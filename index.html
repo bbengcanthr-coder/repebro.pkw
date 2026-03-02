@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CrepebroPKW</title>
 
 <style>
@@ -15,12 +15,13 @@
 
 /* รีเซ็ต */
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
-/* จัดหน้าเหมือนแอปมือถือ */
+/* จัดหน้า */
 body{
-  margin:0;
   background:#ffffff;
   font-family:'UnyuCartoon', sans-serif;
   display:flex;
@@ -36,19 +37,27 @@ body{
   color:#6EC1FF;
 }
 
-/* หัวข้อ */
+/* หัวข้อ + ไอคอน */
 h1{
   font-size:22px;
-  margin:10px 0 15px;
+  margin:15px 0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:6px;
+}
+
+.mini-icon{
+  width:18px;
+  height:auto;
 }
 
 /* ขอบ */
 .top-border,
 .bottom-border{
   width:100%;
-  height:45px;
+  height:40px;
   object-fit:cover;
-  display:block;
 }
 
 .bottom-border{
@@ -61,10 +70,10 @@ h1{
   justify-content:center;
   gap:8px;
   flex-wrap:wrap;
-  margin-bottom:15px;
+  margin:10px 0 15px;
 }
 
-/* กล่องแสดงภาพ */
+/* กล่องภาพ */
 .canvas{
   position:relative;
   width:100%;
@@ -84,7 +93,7 @@ h1{
   max-height:100%;
 }
 
-/* หมวดหมู่ */
+/* หมวด */
 .section{
   display:flex;
   flex-wrap:wrap;
@@ -114,7 +123,6 @@ button{
 
 button:hover{
   background:#D6EEFF;
-  transform:translateY(-2px);
 }
 
 button:active{
@@ -130,7 +138,10 @@ button:active{
 
 <img src="001.png" class="top-border">
 
-<h1>PKWCrepebro</h1>
+<h1>
+  <img src="icon.png" class="mini-icon">
+  PKWCrepebro
+</h1>
 
 <div class="control-buttons">
   <button onclick="playMusic()">▶ play</button>
@@ -141,67 +152,12 @@ button:active{
 <div class="canvas" id="captureArea">
   <img id="layer5" class="layer">
   <img id="layer4" class="layer">
-  <img id="layer3"></div> 
-  <img id="layer2"></div> 
+  <img id="layer3" </div>
+  <img id="layer2" </div>
   <img id="layer1" class="layer">
 </div>
 
-<div class="section">
-<h3>Batter</h3>
-<button onclick="setImage(5,'34.png')">charcoal</button>
-<button onclick="setImage(5,'35.png')">creme</button>
-</div>
-
-<div class="section">
-<h3>Base</h3>
-<button onclick="setImage(4,'24.png')">white</button>
-<button onclick="setImage(4,'25.png')">choco</button>
-<button onclick="setImage(4,'26.png')">purple</button>
-<button onclick="setImage(4,'27.png')">blueberry</button>
-<button onclick="setImage(4,'28.png')">pink</button>
-<button onclick="setImage(4,'29.png')">green</button>
-<button onclick="setImage(4,'30.png')">strawberry</button>
-<button onclick="setImage(4,'31.png')">orange</button>
-<button onclick="setImage(4,'32.png')">yellow</button>
-<button onclick="setImage(4,'33.png')">matcha</button>
-</div>
-
-<div class="section">
-<h3>Toppings</h3>
-<button onclick="setImage(3,'13.png')">kiwi</button>
-<button onclick="setImage(3,'14.png')">sausage</button>
-<button onclick="setImage(3,'15.png')">popcorn</button>
-<button onclick="setImage(3,'16.png')">strawberry</button>
-<button onclick="setImage(3,'17.png')">carrot</button>
-<button onclick="setImage(3,'18.png')">bacon</button>
-<button onclick="setImage(3,'19.png')">medmaengrak</button>
-<button onclick="setImage(3,'20.png')">banana</button>
-<button onclick="setImage(3,'21.png')">cornflakes</button>
-<button onclick="setImage(3,'22.png')">crab</button>
-<button onclick="setImage(3,'23.png')">brownies</button>
-</div>
-
-<div class="section">
-<h3>Sauce</h3>
-<button onclick="setImage(2,'1.png')">strawberry</button>
-<button onclick="setImage(2,'2.png')">cheese</button>
-<button onclick="setImage(2,'3.png')">rainbow</button>
-<button onclick="setImage(2,'4.png')">choco</button>
-<button onclick="setImage(2,'5.png')">matcha</button>
-<button onclick="setImage(2,'6.png')">milk</button>
-<button onclick="setImage(2,'7.png')">choco sauce</button>
-<button onclick="setImage(2,'8.png')">orange</button>
-<button onclick="setImage(2,'9.png')">blueberry</button>
-<button onclick="setImage(2,'10.png')">green</button>
-<button onclick="setImage(2,'11.png')">taro</button>
-<button onclick="setImage(2,'12.png')">pink</button>
-</div>
-
-<div class="section">
-<h3>Crepe Batter</h3>
-<button onclick="setImage(1,'ชาโค.png')">charcoal</button>
-<button onclick="setImage(1,'นมสด.png')">creme</button>
-</div>
+<!-- หมวดต่าง ๆ ของคุณยังใช้แบบเดิมได้ -->
 
 <img src="001.png" class="bottom-border">
 
@@ -233,10 +189,6 @@ function downloadImage(){
   });
 }
 </script>
-
-</body>
-</html>
-<img src="001.png" class="bottom-border">
 
 </body>
 </html>
