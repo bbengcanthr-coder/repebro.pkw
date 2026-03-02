@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>RepebroPKW</title>
 
 <style>
@@ -13,26 +13,40 @@
   src: url('UnyuCartoon.ttf') format('truetype');
 }
 
-/* ตั้งค่าทั้งเว็บ */
+/* รีเซ็ต */
+*{
+  box-sizing:border-box;
+}
+
+/* จัดหน้าเหมือนแอปมือถือ */
 body{
   margin:0;
-  font-family:'UnyuCartoon', sans-serif;
   background:#ffffff;
+  font-family:'UnyuCartoon', sans-serif;
+  display:flex;
+  justify-content:center;
+}
+
+.app{
+  width:100%;
+  max-width:430px;
+  min-height:100vh;
+  padding:16px;
   text-align:center;
   color:#6EC1FF;
 }
 
 /* หัวข้อ */
 h1{
-  margin:20px 0 10px 0;
-  font-weight:600;
+  font-size:22px;
+  margin:10px 0 15px;
 }
 
-/* ขอบบนล่าง */
+/* ขอบ */
 .top-border,
 .bottom-border{
   width:100%;
-  height:50px;
+  height:45px;
   object-fit:cover;
   display:block;
 }
@@ -41,17 +55,24 @@ h1{
   transform:rotate(180deg);
 }
 
+/* ปุ่มควบคุม */
+.control-buttons{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
 /* กล่องแสดงภาพ */
 .canvas{
   position:relative;
-  width:90vw;
-  max-width:360px;
+  width:100%;
   aspect-ratio:1/1;
-  margin:0 auto 25px auto;
   background:#CDEBFF;
-  border-radius:30px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  border-radius:25px;
   overflow:hidden;
+  margin-bottom:20px;
 }
 
 .layer{
@@ -63,17 +84,32 @@ h1{
   max-height:100%;
 }
 
+/* หมวดหมู่ */
+.section{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
+  margin-bottom:18px;
+}
+
+.section h3{
+  width:100%;
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+/* ปุ่ม */
 button{
   background:#EAF6FF;
   border:2px solid #CDEBFF;
-  padding:8px 18px;
-  margin:6px;
-  border-radius:30px;
+  padding:8px 12px;
+  border-radius:20px;
+  font-size:12px;
   cursor:pointer;
-  font-size:14px;
   font-family:'UnyuCartoon', sans-serif;
   color:#0066CC;
-  transition:all 0.2s ease;
+  transition:0.2s;
 }
 
 button:hover{
@@ -82,12 +118,7 @@ button:hover{
 }
 
 button:active{
-  transform:translateY(0px);
-}
-
-/* หัวข้อหมวด */
-h3{
-  margin:18px 0 8px 0;
+  transform:scale(0.95);
 }
 
 </style>
@@ -95,11 +126,13 @@ h3{
 
 <body>
 
+<div class="app">
+
 <img src="001.png" class="top-border">
 
 <h1>PKWrepebro</h1>
 
-<div>
+<div class="control-buttons">
   <button onclick="playMusic()">▶ play</button>
   <button onclick="pauseMusic()">⏸ stop</button>
   <button onclick="downloadImage()">⬇ download</button>
@@ -113,54 +146,64 @@ h3{
   <img id="layer1" class="layer">
 </div>
 
-<div>
+<div class="section">
+<h3>Batter</h3>
+<button onclick="setImage(5,'34.png')">charcoal</button>
+<button onclick="setImage(5,'35.png')">creme</button>
+</div>
 
-<h3>batter</h3>
-<button onclick="setImage(5,'34.png')">charcoalbase</button>
-<button onclick="setImage(5,'35.png')">cremebase</button>
+<div class="section">
+<h3>Base</h3>
+<button onclick="setImage(4,'24.png')">white</button>
+<button onclick="setImage(4,'25.png')">choco</button>
+<button onclick="setImage(4,'26.png')">purple</button>
+<button onclick="setImage(4,'27.png')">blueberry</button>
+<button onclick="setImage(4,'28.png')">pink</button>
+<button onclick="setImage(4,'29.png')">green</button>
+<button onclick="setImage(4,'30.png')">strawberry</button>
+<button onclick="setImage(4,'31.png')">orange</button>
+<button onclick="setImage(4,'32.png')">yellow</button>
+<button onclick="setImage(4,'33.png')">matcha</button>
+</div>
 
-<h3>base</h3>
-<button onclick="setImage(4,'24.png')">whitebase</button>
-<button onclick="setImage(4,'25.png')">chocobase</button>
-<button onclick="setImage(4,'26.png')">purplebase</button>
-<button onclick="setImage(4,'27.png')">blueberrybase</button> 
-<button onclick="setImage(4,'28.png')">pinkbase</button> 
-<button onclick="setImage(4,'29.png')">greenbase</button> 
-<button onclick="setImage(4,'30.png')">strawberrybase</button> 
-<button onclick="setImage(4,'31.png')">orangebase</button> 
-<button onclick="setImage(4,'32.png')">yellowbase</button> 
-<button onclick="setImage(4,'33.png')">matchabase</button>
-
+<div class="section">
 <h3>Toppings</h3>
 <button onclick="setImage(3,'13.png')">kiwi</button>
 <button onclick="setImage(3,'14.png')">sausage</button>
-<button onclick="setImage(3,'15.png')">popcorn</button> 
+<button onclick="setImage(3,'15.png')">popcorn</button>
 <button onclick="setImage(3,'16.png')">strawberry</button>
 <button onclick="setImage(3,'17.png')">carrot</button>
 <button onclick="setImage(3,'18.png')">bacon</button>
-<button onclick="setImage(3,'19.png')">med-maeng-rak</button>
-<button onclick="setImage(3,'20.png')">banana</button> 
-<button onclick="setImage(3,'21.png')">cornflakes</button> 
-<button onclick="setImage(3,'22.png')">crabfight</button>
+<button onclick="setImage(3,'19.png')">medmaengrak</button>
+<button onclick="setImage(3,'20.png')">banana</button>
+<button onclick="setImage(3,'21.png')">cornflakes</button>
+<button onclick="setImage(3,'22.png')">crab</button>
 <button onclick="setImage(3,'23.png')">brownies</button>
+</div>
 
+<div class="section">
 <h3>Sauce</h3>
 <button onclick="setImage(2,'1.png')">strawberry</button>
 <button onclick="setImage(2,'2.png')">cheese</button>
-<button onclick="setImage(2,'3.png')">rainbowsprinkle</button> 
-<button onclick="setImage(2,'4.png')">chocosprinkle</button> 
-<button onclick="setImage(2,'5.png')">matchasauce</button>
-<button onclick="setImage(2,'6.png')">milksauce</button> 
-<button onclick="setImage(2,'7.png')">chocosauce</button>
-<button onclick="setImage(2,'8.png')">orangesauce</button> 
-<button onclick="setImage(2,'9.png')">blueberrysauce</button> 
-<button onclick="setImage(2,'10.png')">greensauce</button> 
-<button onclick="setImage(2,'11.png')">tarosauce</button>
-<button onclick="setImage(2,'12.png')">pinksauce</button>
+<button onclick="setImage(2,'3.png')">rainbow</button>
+<button onclick="setImage(2,'4.png')">choco</button>
+<button onclick="setImage(2,'5.png')">matcha</button>
+<button onclick="setImage(2,'6.png')">milk</button>
+<button onclick="setImage(2,'7.png')">choco sauce</button>
+<button onclick="setImage(2,'8.png')">orange</button>
+<button onclick="setImage(2,'9.png')">blueberry</button>
+<button onclick="setImage(2,'10.png')">green</button>
+<button onclick="setImage(2,'11.png')">taro</button>
+<button onclick="setImage(2,'12.png')">pink</button>
+</div>
 
-<h3>Crepe batter</h3>
+<div class="section">
+<h3>Crepe Batter</h3>
 <button onclick="setImage(1,'ชาโค.png')">charcoal</button>
 <button onclick="setImage(1,'นมสด.png')">creme</button>
+</div>
+
+<img src="001.png" class="bottom-border">
 
 </div>
 
@@ -191,6 +234,8 @@ function downloadImage(){
 }
 </script>
 
+</body>
+</html>
 <img src="001.png" class="bottom-border">
 
 </body>
