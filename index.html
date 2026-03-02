@@ -2,8 +2,8 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>RepebroPKW</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CrepebroPKW</title>
 
 <style>
 
@@ -15,12 +15,12 @@
 
 /* รีเซ็ต */
 *{
+  margin:0;
+  padding:0;
   box-sizing:border-box;
 }
 
-/* จัดหน้าเหมือนแอปมือถือ */
 body{
-  margin:0;
   background:#ffffff;
   font-family:'UnyuCartoon', sans-serif;
   display:flex;
@@ -34,12 +34,13 @@ body{
   padding:16px;
   text-align:center;
   color:#6EC1FF;
+  margin:0 auto;
 }
 
 /* หัวข้อ */
 h1{
   font-size:22px;
-  margin:10px 0 15px;
+  margin:15px 0;
 }
 
 /* ขอบ */
@@ -61,7 +62,7 @@ h1{
   justify-content:center;
   gap:8px;
   flex-wrap:wrap;
-  margin-bottom:15px;
+  margin:10px 0 15px;
 }
 
 /* กล่องแสดงภาพ */
@@ -75,6 +76,7 @@ h1{
   margin-bottom:20px;
 }
 
+/* เลเยอร์หลัก */
 .layer{
   position:absolute;
   top:50%;
@@ -84,7 +86,17 @@ h1{
   max-height:100%;
 }
 
-/* หมวดหมู่ */
+/* container สำหรับ toppings */
+#layer3{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:100%;
+  height:100%;
+}
+
+/* หมวด */
 .section{
   display:flex;
   flex-wrap:wrap;
@@ -114,7 +126,6 @@ button{
 
 button:hover{
   background:#D6EEFF;
-  transform:translateY(-2px);
 }
 
 button:active{
@@ -130,7 +141,7 @@ button:active{
 
 <img src="001.png" class="top-border">
 
-<h1>PKWrepebro</h1>
+<h1>PKWCrepebro</h1>
 
 <div class="control-buttons">
   <button onclick="playMusic()">▶ play</button>
@@ -141,17 +152,19 @@ button:active{
 <div class="canvas" id="captureArea">
   <img id="layer5" class="layer">
   <img id="layer4" class="layer">
-  <img id="layer3" class="layer">
-  <img id="layer2" class="layer">
+  <div id="layer3"></div> <!-- toppings หลายชิ้น -->
+  <img id="layer2"></div> 
   <img id="layer1" class="layer">
 </div>
 
+<!-- Batter -->
 <div class="section">
 <h3>Batter</h3>
 <button onclick="setImage(5,'34.png')">charcoal</button>
 <button onclick="setImage(5,'35.png')">creme</button>
 </div>
 
+<!-- Base -->
 <div class="section">
 <h3>Base</h3>
 <button onclick="setImage(4,'24.png')">white</button>
@@ -166,6 +179,7 @@ button:active{
 <button onclick="setImage(4,'33.png')">matcha</button>
 </div>
 
+<!-- Toppings -->
 <div class="section">
 <h3>Toppings</h3>
 <button onclick="setImage(3,'13.png')">kiwi</button>
@@ -181,6 +195,7 @@ button:active{
 <button onclick="setImage(3,'23.png')">brownies</button>
 </div>
 
+<!-- Sauce -->
 <div class="section">
 <h3>Sauce</h3>
 <button onclick="setImage(2,'1.png')">strawberry</button>
@@ -197,6 +212,7 @@ button:active{
 <button onclick="setImage(2,'12.png')">pink</button>
 </div>
 
+<!-- Crepe Batter -->
 <div class="section">
 <h3>Crepe Batter</h3>
 <button onclick="setImage(1,'ชาโค.png')">charcoal</button>
@@ -213,7 +229,26 @@ button:active{
 
 <script>
 function setImage(layer, file){
-  document.getElementById("layer"+layer).src = file;
+  if(layer === 3){
+    addTopping(file);
+  }else{
+    document.getElementById("layer"+layer).src = file;
+  }
+}
+
+function addTopping(file){
+  const container = document.getElementById("layer3");
+
+  const img = document.createElement("img");
+  img.src = file;
+  img.style.position = "absolute";
+  img.style.top = "50%";
+  img.style.left = "50%";
+  img.style.transform = "translate(-50%,-50%)";
+  img.style.maxWidth = "100%";
+  img.style.maxHeight = "100%";
+
+  container.appendChild(img);
 }
 
 function playMusic(){
@@ -233,10 +268,6 @@ function downloadImage(){
   });
 }
 </script>
-
-</body>
-</html>
-<img src="001.png" class="bottom-border">
 
 </body>
 </html>
