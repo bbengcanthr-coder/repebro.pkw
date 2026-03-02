@@ -8,13 +8,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
+
+/* 1️⃣ ฟอนต์ต้องอยู่บนสุด */
+@font-face {
   font-family: 'KMGloss';
   src: url('KMGlossDemo.ttf') format('truetype');
-  background:linear-gradient(#ffffff);
+}
+
+/* 2️⃣ ค่อยกำหนด body */
+body{
+  margin:0;
+  font-family:'KMGloss', sans-serif;
+  background:#ffffff;
   text-align:center;
 }
+
+</style>
 
 h1{
   margin:20px 0 10px 0;
