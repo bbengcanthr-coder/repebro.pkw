@@ -3,92 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>repebro PKW</title>
+<title>Repebro PKW</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;600&display=swap" rel="stylesheet">
 
-<!-- สำหรับดาวน์โหลดภาพ -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+body{
+  margin:0;
+  font-family:'Mitr',sans-serif;
+  background:linear-gradient(180deg,#fff0f6,#ffffff);
+  text-align:center;
+}
 
+h1{
+  margin:20px 0 10px 0;
+  font-weight:600;
+}
+
+.top-buttons{
+  margin-bottom:15px;
+}
+
+.top-buttons button{
+  background:#ffffff;
+  border:none;
+  padding:8px 14px;
+  margin:4px;
+  border-radius:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  cursor:pointer;
+}
+
+.canvas{
+  position:relative;
+  width:90vw;
+  max-width:360px;
+  aspect-ratio:1/1;
+  margin:0 auto 25px auto;
+  background:#fff;
+  border-radius:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+
+.layer{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  max-width:100%;
+  max-height:100%;
+}
+
+.controls{
+  padding:10px;
+}
+
+h3{
+  margin:18px 0 8px 0;
+}
+
+.controls button{
+  background:#ffffff;
+  border:none;
+  padding:6px 12px;
+  margin:4px;
+  border-radius:20px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.08);
+  cursor:pointer;
+  font-size:14px;
+  transition:0.2s;
+}
+
+.controls button:hover{
+  background:#ffd9ec;
+}
+</style>
 </head>
+
 <body>
 
 <h1>🥞 repebro PKW</h1>
 
 <div class="top-buttons">
   <button onclick="playMusic()">▶ เล่นเพลง</button>
-  <button onclick="pauseMusic()">⏸ หยุดเพลง</button>
+  <button onclick="pauseMusic()">⏸ หยุด</button>
   <button onclick="downloadImage()">⬇ ดาวน์โหลด</button>
 </div>
 
-<audio id="bgm" loop>
-  <source src="BGM Yummy Flavor _ Cute Sweet Happy Background Music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="game-container">
-
-  <div class="canvas" id="canvas">
-    <img id="layer5" class="layer">
-    <img id="layer4" class="layer">
-    <img id="layer3" class="layer">
-    <img id="layer2" class="layer">
-    <img id="layer1" class="layer">
-  </div>
-
-  <div class="controls">
-
-    <h3>ลำดับที่ 5</h3>
-    <button onclick="setImage(5,'34.png')">ชาโค</button>
-    <button onclick="setImage(5,'35.png')">นม</button>
-
-    <h3>ลำดับที่ 4</h3>
-    <button onclick="setImage(4,'24.png')">ขาวตุ่น</button>
-    <button onclick="setImage(4,'25.png')">ไหม้</button>
-    <button onclick="setImage(4,'26.png')">เนื้อคุโรมิ</button>
-    <button onclick="setImage(4,'27.png')">เนื้อโดเรมอน</button>
-    <button onclick="setImage(4,'28.png')">เนื้อเมโรดี้</button>
-    <button onclick="setImage(4,'29.png')">เนื้อกัญชา</button>
-    <button onclick="setImage(4,'30.png')">เนื้อหมู</button>
-    <button onclick="setImage(4,'31.png')">เนื้อนีโม่</button>
-    <button onclick="setImage(4,'32.png')">เนื้อโดเรมี่</button>
-    <button onclick="setImage(4,'33.png')">เนื้อท่อม</button>
-
-    <h3>ลำดับที่ 3</h3>
-    <button onclick="setImage(3,'13.png')">กิวี่</button>
-    <button onclick="setImage(3,'14.png')">ไส้กรอก</button>
-     <button onclick="setImage(3,'15.png')">ไข่หวาน</button>
-    <button onclick="setImage(3,'16.png')">สตอเบอรี่</button>
-    <button onclick="setImage(3,'17.png')">พิเศษ</button>
-    <button onclick="setImage(3,'18.png')">แฮม</button>
-    <button onclick="setImage(3,'19.png')">ถั่วดำ</button>
-    <button onclick="setImage(3,'20.png')">กล้วย</button>
-    <button onclick="setImage(3,'21.png')">ถั่วเหลือง</button>
-    <button onclick="setImage(3,'22.png')">ปูอัด</button>
-    <button onclick="setImage(3,'23.png')">หมูไหม้</button>
-
-    <h3>ลำดับที่ 2</h3>
-    <button onclick="setImage(2,'1.png')">ซอสแดง</button>
-    <button onclick="setImage(2,'2.png')">ซอสเหลือง</button>
-    <button onclick="setImage(2,'2.png')">ซอสเหลือง</button>
-    <button onclick="setImage(2,'3.png')">ฟรุ้งฟริ้ง</button>
-    <button onclick="setImage(2,'4.png')">เม็ดเม็ด</button>
-    <button onclick="setImage(2,'5.png')">ซอสเขียว</button>
-    <button onclick="setImage(2,'6.png')">ซอสขาว</button>
-    <button onclick="setImage(2,'7.png')">แดงตุ่นๆ</button>
-    <button onclick="setImage(2,'8.png')">ซอสส้ม</button>
-    <button onclick="setImage(2,'9.png')">ซอสฟ้า</button>
-    <button onclick="setImage(2,'10.png')">ใบเตย</button>
-    <button onclick="setImage(2,'11.png')">ม่วง</button>
-    <button onclick="setImage(2,'12.png')">ชมพู</button>
-
-    <h3>ลำดับที่ 1</h3>
-    <button onclick="setImage(1,'ชาโค.png')">แป้งธรรมดา</button>
-    <button onclick="setImage(1,'นมสด.png')">แป้งช็อกโกแลต</button>
-
-  </div>
+<div class="canvas" id="captureArea">
+  <img id="layer5" class="layer">
+  <img id="layer4" class="layer">
+  <img id="layer3" class="layer">
+  <img id="layer2" class="layer">
+  <img id="layer1" class="layer">
 </div>
 
-<script src="script.js"></script>
+<div class="controls">
+
+<!-- ลำดับ 5 -->
+<h3>ลำดับที่ 5</h3>
+<button onclick="setImage(5,'34.png')">ชาโค</button>
+<button onclick="setImage(5,'35.png')">นม</button>
+
+<!-- ลำดับ 4 -->
+<h3>ลำดับที่ 4</h3>
+<button onclick="setImage(4,'24.png')">ขาวตุ่น</button>
+<button onclick="setImage(4,'25.png')">ไหม้</button>
+<button onclick="setImage(4,'26.png')">เนื้อคุโรมิ</button>
+<button onclick="setImage(4,'27.png')">เนื้อโดเรมอน</button>
+<button onclick="setImage(4,'28.png')">เนื้อเมโรดี้</button>
+<button onclick="setImage(4,'29.png')">เนื้อกัญชา</button>
+<button onclick="setImage(4,'30.png')">เนื้อหมู</button>
+<button onclick="setImage(4,'31.png')">เนื้อนีโม่</button>
+<button onclick="setImage(4,'32.png')">เนื้อโดเรมี่</button>
+<button onclick="setImage(4,'33.png')">เนื้อท่อม</button>
+
+<!-- ลำดับ 3 -->
+<h3>ลำดับที่ 3</h3>
+<button onclick="setImage(3,'13.png')">กิวี่</button>
+<button onclick="setImage(3,'14.png')">ไส้กรอก</button>
+<button onclick="setImage(3,'15.png')">ไข่หวาน</button>
+<button onclick="setImage(3,'16.png')">สตอเบอรี่</button>
+<button onclick="setImage(3,'17.png')">พิเศษ</button>
+<button onclick="setImage(3,'18.png')">แฮม</button>
+<button onclick="setImage(3,'19.png')">ถั่วดำ</button>
+<button onclick="setImage(3,'20.png')">กล้วย</button>
+<button onclick="setImage(3,'21.png')">ถั่วเหลือง</button>
+<button onclick="setImage(3,'22.png')">ปูอัด</button>
+<button onclick="setImage(3,'23.png')">หมูไหม้</button>
+
+<!-- ลำดับ 2 -->
+<h3>ลำดับที่ 2</h3>
+<button onclick="setImage(2,'1.png')">ซอสแดง</button>
+<button onclick="setImage(2,'2.png')">ซอสเหลือง</button>
+<button onclick="setImage(2,'3.png')">ฟรุ้งฟริ้ง</button>
+<button onclick="setImage(2,'4.png')">เม็ดเม็ด</button>
+<button onclick="setImage(2,'5.png')">ซอสเขียว</button>
+<button onclick="setImage(2,'6.png')">ซอสขาว</button>
+<button onclick="setImage(2,'7.png')">แดงตุ่นๆ</button>
+<button onclick="setImage(2,'8.png')">ซอสส้ม</button>
+<button onclick="setImage(2,'9.png')">ซอสฟ้า</button>
+<button onclick="setImage(2,'10.png')">ใบเตย</button>
+<button onclick="setImage(2,'11.png')">ม่วง</button>
+<button onclick="setImage(2,'12.png')">ชมพู</button>
+
+<!-- ลำดับ 1 -->
+<h3>ลำดับที่ 1</h3>
+<button onclick="setImage(1,'ชาโค.png')">แป้งธรรมดา</button>
+<button onclick="setImage(1,'นมสด.png')">แป้งช็อกโกแลต</button>
+
+</div>
+
+<audio id="bgMusic" src="yummy.mp3"></audio>
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+<script>
+function setImage(layer, file){
+  document.getElementById("layer"+layer).src = file;
+}
+
+function playMusic(){
+  document.getElementById("bgMusic").play();
+}
+
+function pauseMusic(){
+  document.getElementById("bgMusic").pause();
+}
+
+function downloadImage(){
+  html2canvas(document.getElementById("captureArea")).then(canvas=>{
+    const link=document.createElement("a");
+    link.download="repebro.png";
+    link.href=canvas.toDataURL();
+    link.click();
+  });
+}
+</script>
+
 </body>
 </html>
